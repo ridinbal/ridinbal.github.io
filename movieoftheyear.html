@@ -1,0 +1,429 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+	body {
+  background-color: black;
+background-image: url("https://flashbak.com/wp-content/uploads/2014/07/collage-copy.jpg");
+
+ height: 900px; background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  z-index: 2;
+}
+
+.flip-card-back {
+  background-color: orange;
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #020503;
+
+}
+
+li {
+  float: left;
+  font-size: 30px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+.footer {
+   
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   font-size: 20px;
+}
+.navbar {
+  overflow: auto;
+  background-color: black;
+  width: 100%;
+}
+.navbar a {
+  float: left;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.container { 
+          
+          
+          font-size: 20px;
+          color: white;
+          font-family: arial;
+          float: center;
+        }
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button4 {border-radius: 12px;}
+
+#emailid {
+    border-radius: 18px;
+    font-size:20px;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+#commentuser {
+font-size:20px;
+  }
+  a:link {
+  text-decoration: none;
+ 
+}
+
+a:visited {
+  text-decoration: none;
+ 
+}
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+
+</style>
+<script>
+var db = openDatabase('mydb3', '1.0', 'Test DB', 2 * 1024 * 1024);
+      
+      db.transaction(
+
+        function (tx) 
+        { 
+         tx.executeSql('CREATE TABLE IF NOT EXISTS CommentBox (email TEXT, comment VARCHAR)');
+      });
+
+
+      db.transaction( 
+
+        function (tx) 
+
+        {
+
+        tx.executeSql('SELECT * FROM CommentBox', [], function (tx, results) { 
+          
+            var len = results.rows.length;
+            var i; 
+        
+            for (i = 0; i < len; i++) 
+            {
+            createNewNote(results.rows.item(i).email, results.rows.item(i).comment);
+            }
+    
+        }, null);
+
+      });
+
+
+      function addNote()
+      {
+        var email1 = document.getElementById("emailid").value;
+        var comment1 =  document.getElementById("commentuser").value;
+        if(!checkemail()){
+
+alert("wrong mail");
+
+
+        }
+        else{
+        var query = `INSERT INTO CommentBox (email, comment) VALUES ("${email1}", "${comment1}")`;
+        
+
+        db.transaction(function (tx) { 
+
+            tx.executeSql(query);
+      
+        });
+
+        createNewNote(email1, comment1);
+
+        resetInput();
+        
+      }
+}
+      function createNewNote(email1, comment1)
+      {
+        var paragraph = document.createElement("p");
+        paragraph.innerHTML = `<center><u><b>${email1}</b></u><br>${comment1}<br><br><hr></center>`;
+
+        document.getElementById("Output").appendChild(paragraph);
+      }
+
+      function resetInput()
+      {
+        document.getElementById("emailid").value = "";
+        document.getElementById("commentuser").value = "";
+      }
+
+      function clearDatabase()
+        {
+          db.transaction(function (tx) { 
+            tx.executeSql('DELETE FROM CommentBox');  
+        });
+
+        document.getElementById("Output").innerHTML = "";
+        }
+
+
+
+
+    function formValidate()
+    {
+if(!checkemail())
+      {
+          //alert("Please enter a valid email id");
+          return false;
+      }
+    }
+    function checkemail()
+    {
+        var email = document.getElementById('emailid').value;
+        if(email.length <= 0||email.length > 30)//to make sure field is  not empty
+          return false;
+
+         mailRegex = /^[a-z]+[@][a-z]+.(com)$/;
+        return mailRegex.test(email);// .test is a function tht returns true if element passes the regex and false otherwise
+    }
+
+  </script>
+  <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '2cc9da58-fd62-4a1e-86cf-f9345bb00c8d', f: true }); done = true; } }; })();</script>
+</head>
+
+<body>
+ <div class="navbar">
+<a href="./index.html"><img src="rmw1.png"  width="160" height="70"></a>
+  <a href="./index.html">Home</a>
+<a href="./about.html">About</a>
+
+<a href="./movieoftheyear.html">Movie of the Year</a>
+
+  
+  <div class="dropdown">
+    <button class="dropbtn"><font size="4px">Subscription </font>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./plansandpackages.html">Plans & Packages</a>
+      <a href="./subscribe.html">Subscribe</a>
+      
+    </div>
+  </div> 
+  <a href="./movie_quiz.html">Movie Quiz</a>
+  <a href="./originalcv.xml">CV</a>
+</div>
+
+
+<div style="background-color:#210a1c; color:white;">
+	<h1 style="font-size: 50px; text-align: center; color: orange;"> Movie of the Year</h1>
+<table border="0">
+  <tr><td width="500px">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://peopledotcom.files.wordpress.com/2019/03/avengers-endgame.jpg" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>Avengers Endgame</h1> 
+      
+      <p><a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" target="_blank">Synopsis:Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos.</a> </p>
+    </div>
+  </div>
+</div>
+</td>
+
+<td width="500px">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="lostandfound.jpeg" alt="lostandfound" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>Lost & Found</h1> 
+      <p><a href="https://www.youtube.com/watch?v=IPWaJGmMZLM&t=314s" target="_blank">Lost and Found is Ridin's debut movie as an actor, director and writer. It got selected for 2 international short film festival's and got screened in Vox cinema. </a></p> 
+    
+    </div>
+  </div>
+</div>
+</td>
+<td width="500px">
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="https://pics.filmaffinity.com/forushande_the_salesman-582300856-large.jpg" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>The Salesman</h1> 
+      <p><a href="https://www.youtube.com/watch?v=r-61yYjKHHc" target="_blank" >After their flat becomes damaged, Emad (Shahab Hosseini) and Rana (Taraneh Alidoosti), a young couple living in Tehran, Iran, must move into another apartment. Once relocated, a sudden eruption of violence linked to the previous tenant of their new home dramatically changes their lives, creating a simmering tension between husband and wife.</a> </p> 
+      
+    </div>
+  </div>
+</div>
+</td></tr></table>
+</div>
+<br>
+<br>
+<div style="background-color:#0a1121; color:white;font-family:arial;">
+	<center><h1 style="color:red;">What are your thoughts? </h1>
+	<form action="#"  method="post">
+        
+       <font size="4px">
+            Email ID:<br></td><td> <input type="text" name="emailid"class="form-textbox" id="emailid"> 
+          
+<br><br>
+          
+          Comment:<br>
+          <textarea class="form-control" rows="5" cols="50" name="commentuser" id="commentuser"></textarea><br>
+        </font>
+        
+<br>
+        
+          <button onclick="addNote()" class="button button4">Submit comment</button><br><br>
+          </form>
+          <button onclick="clearDatabase()" class="button button4">Clear Comment</button>
+        
+</center>
+      
+<br><br>
+
+<br>
+ 
+	</div>
+	<br>
+<br><br><br><br><br><br><br><br>
+
+	<div style="background-color:black; color:white;font-family:Impact, Charcoal, sans-serif">
+    <center>
+       
+		<h1 style="color:yellow;">Comments: </h1> </center>
+	<div class="container" id="Output">
+	</div>
+</div>
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br>
+<div class="footer">
+  <p> &copy;Copyrights 2019. All right reserved Ridin's Movie World</p>
+</div>
+	</body>
+	</html>

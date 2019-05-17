@@ -1,0 +1,342 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	body, html {
+  height: 100%;
+  margin: 0;
+  
+  font-family:arimo;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("https://flashbak.com/wp-content/uploads/2014/07/collage-copy.jpg");
+  
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.form-textbox {
+
+height: 45px !important;
+
+width: 220px !important;
+
+font-size: 14px !important;
+
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button4 {border-radius: 12px;}
+a:link {
+  text-decoration: none;
+  color:white;
+}
+
+a:visited {
+  text-decoration: none;
+  color:white;
+}
+.navbar {
+  overflow: hidden;
+  background-color: black;
+}
+.navbar a {
+  float: left;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#customer_name {
+    border-radius: 18px;
+    font-size:20px;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+#customer_age {
+    border-radius: 18px;
+    font-size:20px;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+
+#user_credit {
+    border-radius: 18px;
+    font-size:20px;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+#customer_email {
+    border-radius: 18px;
+    font-size:20px;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+#pno {
+    border-radius: 18px;
+    font-size:20px;
+    padding: 20px; 
+    width: 200px;
+    height: 15px;    
+}
+
+</style>
+<body>
+
+
+<div class="navbar">
+<a href="./index.html"><img src="rmw1.png"  width="160" height="70"></a>
+  <a href="./index.html">Home</a>
+<a href="./about.html">About</a>
+
+<div class="dropdown">
+    <button class="dropbtn">Browse
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./movieoftheyear.html">Movie of the Year</a>
+     
+      
+    </div>
+  </div> 
+
+  
+  <div class="dropdown">
+    <button class="dropbtn">Subscription 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./plansandpackages.html">Plans & Packages</a>
+      <a href="./subscribe.html">Subscribe</a>
+      
+    </div>
+  </div> 
+  <a href="./movie_quiz.html">Movie Quiz</a>
+  <a href="./originalcv.xml">CV</a>
+</div>
+
+<div class="bg-image"></div>
+
+<div class="bg-text">
+
+  <form action="#" onsubmit="return formValidate()" method="post">
+  	<h1> SUBSCRIBE:</h1>
+  		<table border=0 style="color: white; font-size: 40px;">
+  			<tr>
+  				<td>
+Name:</td><td> <input type="text" name="name" class="form-textbox" id="customer_name"></td>
+</tr>
+<tr>
+	<td>
+Age:</td><td> <input type="text" name="age"class="form-textbox" id="customer_age"> </td>
+</tr>
+<tr><td>
+Package: </td><td><select class="form-textbox">
+	<option value="select">select</option>
+  <option value="basic">Basic</option>
+  <option value="pro">pro</option>
+  <option value="premium">Premium</option>
+  
+</select></td>
+</tr>
+<tr>
+	<td>
+Credit card</td><td> <input type="text" name="credit" class="form-textbox" id="user_credit"> </td>
+</tr>
+<tr>
+	<td>
+email:</td><td> <input type="text" name="email"class="form-textbox" id="customer_email"> </td>
+</tr>
+<tr>
+	<td>
+phone number:</td><td><input type="text" name="phone"class="form-textbox" id="pno"> </td>
+</tr>
+<tr>
+	<td></td>
+	<td><button class="button button4">SUBMIT</button></td>
+</tr>
+</table>
+</font>
+  </form>
+</div>
+<script type="text/javascript">
+	
+
+		function formValidate()
+		{
+if(!checkName())
+      {
+          alert("Please enter a valid Name");
+          return false;
+      }
+
+      if(!checkage())
+      {
+          alert("you should be more than 18 year old");
+          return false;
+      }
+       if(!checkcredit())
+      {
+          alert("Please enter correct credit card number");
+          return false;
+      }
+ if(!checkemail())
+      {
+          alert("Please enter correct email id");
+          return false;
+      }
+
+      if(!checkphoneno())
+      {
+          alert("Please enter a valid mobile number");
+          return false;
+      }
+
+		}
+
+		function checkName()
+		{
+			  var customerName = document.getElementById('customer_name').value;
+        if(customerName.length <= 0)//to make sure field is  not empty
+          return false;
+
+			  var nameRegex = /^[A-Z][a-z]+$/;
+			  return nameRegex.test(customerName);// .test is a function tht returns true if element passes the regex and false otherwise
+		}
+function checkage()
+		{
+			  var customerage = document.getElementById('customer_age').value;
+        if(customerage.length <= 0)//to make sure field is  not empty
+          return false;
+
+			  var ageRegex = /^([1][8-9])|([2-9][0-9])$/;
+			  return ageRegex.test(customerage);// .test is a function tht returns true if element passes the regex and false otherwise
+		}
+
+function checkemail()
+		{
+			  var customeremail = document.getElementById('customer_email').value;
+        if(customeremail.length <= 0)//to make sure field is  not empty
+          return false;
+
+			   mailRegex = /^[a-z]+[@][a-z]+.(com)$/;
+			  return mailRegex.test(customeremail);// .test is a function tht returns true if element passes the regex and false otherwise
+		}
+
+		function checkphoneno()
+		{
+			  var phoneno = document.getElementById('pno').value;
+        if(phoneno.length <= 0)//to make sure field is  not empty
+          return false;
+
+			  var phoneRegex = /^([+][9][7][1])([4]|[5][6]|[5][5]|[5][4]|[5][8]|[5][0]|[5][2])([0-9]{3}-[0-9]{4})$/;
+			  return phoneRegex.test(phoneno);// .test is a function tht returns true if element passes the regex and false otherwise
+		}
+		function checkcredit()
+		{
+			  var credit = document.getElementById('user_credit').value;
+        if(credit.length <= 0)//to make sure field is  not empty
+          return false;
+
+			  var creditRegex = /^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$/;
+			  return creditRegex.test(credit);// .test is a function tht returns true if element passes the regex and false otherwise
+		}
+
+</script>
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '2cc9da58-fd62-4a1e-86cf-f9345bb00c8d', f: true }); done = true; } }; })();</script>
+</body>
+</html>

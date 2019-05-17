@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE cv[
+
+<!ELEMENT cv (basic,edu,summary,exp,education,skills,experience)>
+<!ELEMENT basic (name,position,email,facebook,twitter) >
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT position (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT facebook (#PCDATA)>
+<!ELEMENT twitter (#PCDATA)>
+<!ELEMENT edu (school1,year1,grade1,school2,year2,grade2,school3,year3,grade3)>
+<!ELEMENT school1 (#PCDATA)>
+<!ELEMENT year1 (#PCDATA)>
+<!ELEMENT grade1 (#PCDATA)>
+<!ELEMENT school2 (#PCDATA)>
+<!ELEMENT year2 (#PCDATA)>
+<!ELEMENT grade2 (#PCDATA)>
+<!ELEMENT school3 (#PCDATA)>
+<!ELEMENT year3 (#PCDATA)>
+<!ELEMENT grade3 (#PCDATA)>
+<!ELEMENT summary (s11) >
+<!ELEMENT s11 (#PCDATA)>
+<!ELEMENT exp (exp1,exp2,exp3,exp4,exp5,exp6,exp7)>
+<!ELEMENT exp1 (#PCDATA)>
+<!ELEMENT exp2 (#PCDATA)>
+<!ELEMENT exp3 (#PCDATA)>
+<!ELEMENT exp4 (#PCDATA)>
+<!ELEMENT exp5 (#PCDATA)>
+<!ELEMENT exp6 (#PCDATA)>
+<!ELEMENT exp7 (#PCDATA)>
+<!ELEMENT education (year1,school1,grader,mark,year2,school2,grader2,mark2)>
+<!ELEMENT year1 (#PCDATA)>
+<!ELEMENT school1 (#PCDATA)>
+<!ELEMENT grader (#PCDATA)>
+<!ELEMENT mark (#PCDATA)>
+<!ELEMENT year2 (#PCDATA)>
+<!ELEMENT school2 (#PCDATA)>
+<!ELEMENT grader2 (#PCDATA)>
+<!ELEMENT mark2 (#PCDATA)>
+<!ELEMENT skills (school1,year1,grade1,school2,year2,grade2,school3,year3,grade3)>
+<!ELEMENT s1 (#PCDATA)>
+<!ELEMENT s2 (#PCDATA)>
+<!ELEMENT s3 (#PCDATA)>
+<!ELEMENT s4 (#PCDATA)>
+<!ELEMENT experience (job1,year1,job2,year2,job3,year3)>
+<!ELEMENT jo1 (#PCDATA)>
+<!ELEMENT year1 (#PCDATA)>
+<!ELEMENT job2 (#PCDATA)>
+<!ELEMENT year2 (#PCDATA)>
+<!ELEMENT job3 (#PCDATA)>
+<!ELEMENT year3 (#PCDATA)>
+
+]>
+
+
+<?xml-stylesheet type="text/xsl" href="originalcv.xsl"?>
+
+<cv>
+<basic>
+<name><b> Ridin Bal</b></name>
+<position> Technology Manager</position>
+<email> ridinbal@gmail.com</email>
+<facebook>facebook.com/ridinbal </facebook>
+<twitter>twitter.com/ridinbal </twitter>
+
+</basic>
+
+<edu>
+<school1> DPS DUBAI</school1>
+<year1>2004-2015</year1>
+<grade1>KG1-Grade10 </grade1>
+<school2>DPS DUBAI</school2>
+<year2>2016-2017 </year2>
+<grade2>Grade11-Grade12 </grade2>
+<school3>UOWD </school3>
+<year3> 2018-2021</year3>
+<grade3>Bachelor of Computer Science: Major in digital system security </grade3>
+
+</edu> 
+<summary>
+<s11>Multi-tasking Admin Assistant with +2 years of experience in the Tech industry. Can manage +9 executive schedules. Looking to leverage proven communication, travel planning, and email management skill in the position of Technology manager at IBM. </s11>
+</summary>
+
+<exp>
+<exp1> 2017-2019  </exp1>
+<exp2> Administrative Assistant</exp2>
+<exp3>IBM </exp3>
+<exp4>Responsibilities: </exp4>
+<exp5> Trained 3 interns on customer service and office procedures </exp5>
+<exp6>  Organized office transition from paper invoice to Quickbooks </exp6>
+<exp7> Provided administrative support for the marketing department </exp7>
+
+	</exp>
+
+<education>
+
+<year1>2004-2017</year1>
+<school1> Delhi Private School,Dubai</school1>
+<grader>   Commerce  </grader>
+<mark>         A++      </mark>
+<year2>2018-2021</year2>
+<school2> University of Wollongong,Dubai</school2>
+<grader2>   Bachelor of computer Science </grader2>
+<mark2>         A++     </mark2>
+</education>
+
+
+
+<skills>
+	<s1> 1.) Programming </s1>
+	<s2> 2.) Film Making </s2>
+	<s3> 3.)Acting </s3>
+	<s4> 4.) Web design</s4>
+
+</skills>
+
+<experience>
+<job1>1.) Senior Programmer</job1>
+<year1> 2017-2018 </year1>
+<job2>2.)Junior Programmer</job2>
+<year2> 2018-2019</year2>
+<job3> 3.)Engineer </job3>
+<year3>2018-2021</year3>
+	</experience>
+</cv>

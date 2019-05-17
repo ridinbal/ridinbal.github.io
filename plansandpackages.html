@@ -1,0 +1,265 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("https://flashbak.com/wp-content/uploads/2014/07/collage-copy.jpg");
+  
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.columns {
+  float: left;
+  width: 33.3%;
+  padding: 8px;
+}
+
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.price:hover {
+  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+  background-color: green;
+  color: white;
+  font-size: 25px;
+}
+.price .header1 {
+  background-color: orange;
+  color: white;
+  font-size: 25px;
+}
+.price .header2 {
+  background-color: blue;
+  color: white;
+  font-size: 25px;
+}
+
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.price .grey {
+  background-color: black;
+  font-size: 20px;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+  }
+}
+
+
+
+a:link {
+  text-decoration: none;
+  color:white;
+}
+
+a:visited {
+  text-decoration: none;
+  color:white;
+}
+
+.footer {
+   
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+   font-size: 20px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: black;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+<a href="./index.html"><img src="rmw1.png"  width="160" height="70"></a>
+  <a href="./index.html">Home</a>
+<a href="./about.html">About</a>
+
+<a href="./movieoftheyear.html">Movie of the Year</a>
+
+  
+  <div class="dropdown">
+    <button class="dropbtn"><font size="4px">Subscription </font>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="./plansandpackages.html">Plans & Packages</a>
+      <a href="./subscribe.html">Subscribe</a>
+      
+    </div>
+  </div> 
+  <a href="./movie_quiz.html">Movie Quiz</a>
+  <a href="./originalcv.xml">CV</a>
+</div>
+
+
+<div class="bg-image"></div>
+
+<div class="bg-text">
+  <h1> PLANS & PACKAGES</h1>
+  <div class="columns">
+  <ul class="price">
+    <li class="header">Basic</li>
+    <li class="grey">10.00 د.إ / Monthly</li>
+    <li>Watch on 1 device</li>
+    <li>Only HD</li>
+    
+    <li class="grey"><a href="file:///Users/ridin/Desktop/rmovieworldwebsite/subscribe.html" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header1" style="background-color:orange">Pro</li>
+    <li class="grey">90.00 د.إ/ yearly</li>
+    <li>Watch on 2 devices</li>
+    <li>4k quality</li>
+   
+    <li class="grey"><a href="file:///Users/ridin/Desktop/rmovieworldwebsite/subscribe.html" class="button">Sign Up</a></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header2">Premium</li>
+    <li class="grey"> 500 د.إ / year</li>
+    <li>Watch on more than multiple devices</li>
+    <li>10K quality</li>
+   
+    <li class="grey"><a href="file:///Users/ridin/Desktop/rmovieworldwebsite/subscribe.html" class="button">Sign Up</a></li>
+  </ul>
+</div>
+</div>
+
+<div class="footer">
+  <p> &copy;Copyrights 2019. All right reserved Ridin's Movie World</p>
+</div>
+
+</body>
+</html>
+
